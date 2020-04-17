@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Text, View, TouchableOpacity } from 'react-native';
 
 
-export default function SharePhoto({ styles, shareMethod, selectedImg }) {
+export default function SharePhoto({ styles, shareMethod, backMethod, selectedImg }) {
     return (
         <View style={styles.container}>
             <Image
@@ -13,6 +13,11 @@ export default function SharePhoto({ styles, shareMethod, selectedImg }) {
         </Text>
             <TouchableOpacity onPress={shareMethod} style={styles.button}>
                 <Text style={styles.buttonText}>Share this photo</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={backMethod} style={styles.button}>
+                <Text style={styles.buttonText}>
+                    Back to 🏠
+                </Text>
             </TouchableOpacity>
         </View>
     )

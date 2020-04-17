@@ -9,6 +9,10 @@ export default function App() {
 
   const [selectedImg, setSelectedImg] = useState(null);
 
+  let unSetSelectedImage = () => {
+    setSelectedImg(null);
+  }
+
   let openImagePickerAsync = async () => {
     let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
 
@@ -37,7 +41,9 @@ export default function App() {
     return (
       <SharePhoto styles={styles}
         selectedImg={selectedImg}
-        shareMethod={openShareDialogAsync} ></SharePhoto>
+        shareMethod={openShareDialogAsync}
+        backMethod={unSetSelectedImage}
+      ></SharePhoto>
     );
   }
 
@@ -58,6 +64,17 @@ const styles = StyleSheet.create({
     height: 159,
     marginBottom: 10
   },
+  logoEmoji: {
+    fontSize: 60,
+    marginHorizontal: 40,
+    alignContent: "center"
+  },
+  logoText: {
+    fontSize: 28,
+    marginHorizontal: 40,
+    alignContent: "center",
+    marginBottom: 20
+  },
   instructions: {
     color: '#888',
     fontSize: 18,
@@ -66,7 +83,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#5844ed",
     padding: 20,
-    marginTop: 10,
+    marginTop: 15,
     borderRadius: 5,
   },
   buttonText: {
