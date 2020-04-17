@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as Sharing from 'expo-sharing';
 import AppIndex from './Views/Index';
