@@ -80,16 +80,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginHorizontal: 15
   },
-  button: {
-    backgroundColor: "#5844ed",
-    padding: 20,
-    marginTop: 15,
-    borderRadius: 5,
-  },
-  buttonText: {
-    fontSize: 20,
-    color: '#fff',
-  },
   thumbnail: {
     width: 300,
     height: 300,

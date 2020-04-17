@@ -3,6 +3,7 @@ import React from 'react';
 import { Image, Text, View, TouchableOpacity } from 'react-native';
 import logo from '../assets/logo.png';
 import Logo from './Logo';
+import Button from './Button';
 
 export default function Index({ styles, imagePickerMethod }) {
     return (
@@ -14,11 +15,7 @@ export default function Index({ styles, imagePickerMethod }) {
             <Text style={styles.instructions}>
                 Press the button below to get started!
              </Text>
-            <TouchableOpacity
-                onPress={imagePickerMethod}
-                style={styles.button}>
-                <Text style={styles.buttonText}>Pick a Photo</Text>
-            </TouchableOpacity>
+            <Button method={imagePickerMethod} text="Pick a Photo" ></Button>
         </View>
     )
 }

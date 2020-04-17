@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, Text, View, TouchableOpacity } from 'react-native';
+import Button from './Button';
 
 
 export default function SharePhoto({ styles, shareMethod, backMethod, selectedImg }) {
@@ -11,14 +12,8 @@ export default function SharePhoto({ styles, shareMethod, backMethod, selectedIm
             <Text style={styles.pickedThumbnailLabel}>
                 Here is the Photo you picked.
         </Text>
-            <TouchableOpacity onPress={shareMethod} style={styles.button}>
-                <Text style={styles.buttonText}>Share this photo</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={backMethod} style={styles.button}>
-                <Text style={styles.buttonText}>
-                    Back to 🏠
-                </Text>
-            </TouchableOpacity>
+            <Button method={shareMethod} text="Share this Photo"></Button>
+            <Button method={backMethod} text="  Back to 🏠"></Button>
         </View>
     )
 }
