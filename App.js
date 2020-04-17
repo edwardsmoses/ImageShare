@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import logo from './assets/logo.png';
 import * as ImagePicker from 'expo-image-picker';
 import * as Sharing from 'expo-sharing';
+import AppIndex from './Views/Index';
+import SharePhoto from './Views/SharePhoto';
 
 export default function App() {
 
@@ -34,33 +35,14 @@ export default function App() {
 
   if (selectedImg !== null) {
     return (
-      <View style={styles.container}>
-        <Image
-          source={{ uri: selectedImg.localUri }}
-          style={styles.thumbnail} />
-        <Text style={styles.pickedThumbnailLabel}>
-          Here is the Photo you picked.
-          <Text style={styles.small}>Share it with your friends. </Text>
-        </Text>
-        <TouchableOpacity onPress={openShareDialogAsync} style={styles.button}>
-          <Text style={styles.buttonText}>Share this photo</Text>
-        </TouchableOpacity>
-      </View>
+      <SharePhoto styles={styles}
+        selectedImg={selectedImg}
+        shareMethod={openShareDialogAsync} ></SharePhoto>
     );
   }
 
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: "https://i.imgur.com/TkIrScD.png" }} style={styles.logo} />
-      <Text style={styles.instructions}>
-        To share a photo from your phone with your friends, press the button below to get started!
-        </Text>
-      <TouchableOpacity
-        onPress={openImagePickerAsync}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Pick a Photo</Text>
-      </TouchableOpacity>
-    </View>
+    <AppIndex styles={styles} imagePickerMethod={openImagePickerAsync}></AppIndex>
   );
 }
 
@@ -100,8 +82,5 @@ const styles = StyleSheet.create({
     color: '#5844ed',
     fontSize: 20,
     margin: 20
-  },
-  small: {
-    fontSize: 10
   }
 });
